@@ -1,7 +1,8 @@
 import React from 'react'
 import classes from './style/layout.module.css'
 import { Link } from 'react-router-dom'
-const Layout = () => {
+const Layout = (props) => {
+ 
   return (
     <div className={classes.fix}>
    
@@ -12,7 +13,7 @@ const Layout = () => {
             <span className={classes.layoutTitlesub}>Create your professional website or online store</span>
 
         </h1>
-        <Link to="#" className={classes.btn}>discover our work</Link>
+        <Link to="#" className={classes.btn} onClick={props.clickHandeler}>discover our work</Link>
        </div>
     </div>
     </div>

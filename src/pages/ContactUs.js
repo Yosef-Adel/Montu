@@ -1,11 +1,11 @@
 import React from 'react'
 import classes from './style/contact.module.css'
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import {Formik, Field, ErrorMessage, Form } from 'formik'
 import * as Yup from 'yup'
 const ContactUs = () => {
-
+  const [formData, setFormData] = useState({name: '', email: '', message:''});
   const form = useRef();
   const initialValues = {
     name: "",
@@ -18,14 +18,14 @@ const validationSchema= Yup.object().shape({
   message: Yup.string().required("Message field is required") 
 
 })
-  const onSubmit =(data)=>{
-   
+  const onSubmit =(data,{resetForm })=>{
     emailjs.sendForm('service_tzx3gt8', 'template_bynoide',form.current, 'Q8weAd8VHeuDaongL')
     .then((result) => {
         console.log(result.text);
     }, (error) => {
         console.log(error.text);
-    });
+    }); 
+    resetForm();
   }
   return (
     <div className= {classes.container}>
@@ -33,8 +33,8 @@ const validationSchema= Yup.object().shape({
       <Form ref={form}  className={classes.formBox} >
         <div className={classes.control}>
           <label>Name: </label>
-          <Field type="text" name="name" />
-          <ErrorMessage name='name' component="span"/>
+          <Field type="text" name="name"  />
+          <ErrorMessage name='name' component="span"  />
         </div>
         <div className={classes.control}>
          <label>Email:</label>
@@ -48,7 +48,7 @@ const validationSchema= Yup.object().shape({
          </div>
         
           <div className={classes.actions}>
-          <button type="submit" value="Send" > Send</button>
+          <button type="submit"  > Send</button>
           </div>
     </Form>
       </Formik>

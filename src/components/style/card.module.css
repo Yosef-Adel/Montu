@@ -42,7 +42,7 @@
     background-image: linear-gradient(to right bottom, #83ebd1, #059c88);
 }
 .Card3Back{
-    background-image: linear-gradient(to right bottom, #68cc2e, #56c20f);
+    background-image: linear-gradient(to right bottom, #18e4a7, #419212);
 }
 .card:hover .cardFront {
     transform: rotateY(-180deg); }
@@ -105,3 +105,23 @@
    text-transform: uppercase;
    color: white;
 }
+
+@media screen and (max-width: 450px) {
+
+   .cardDetails {
+    
+      transform: translateY(-40%);
+      
+   }
+ 
+ }
+
+ @media screen and (max-width: 350px) {
+   .cardDetails {
+    
+      transform: translateY(-50%);
+      
+   }
+ 
+ 
+ }

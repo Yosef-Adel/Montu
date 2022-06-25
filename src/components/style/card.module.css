@@ -30,6 +30,8 @@
  }
 .cardBack {
     transform: rotateY(180deg);
+    padding: 1rem;
+    box-sizing: border-box;
     
 }
 .Card1Back {
@@ -96,3 +98,10 @@
     transition: all .2s;
  }
  
+ .cardDetails {
+   font-size: 2.7rem;
+   margin-top: 50%;
+   transform: translateY(-15%);
+   text-transform: uppercase;
+   color: white;
+}

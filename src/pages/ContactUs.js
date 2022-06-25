@@ -32,18 +32,19 @@ const validationSchema= Yup.object().shape({
       <Formik initialValues={initialValues}  validationSchema={validationSchema} onSubmit={onSubmit}  >
       <Form ref={form}  className={classes.formBox} >
         <div className={classes.control}>
-          <label>Name: </label>
-          <Field type="text" name="name"  />
+          
+          <Field type="text" name="name"  className={classes.formField} />
+          <label className={classes.formLable}>Name </label>
           <ErrorMessage name='name' component="span"  />
         </div>
         <div className={classes.control}>
-         <label>Email:</label>
-          <Field type="email" name="email" />
+          <Field type="email" name="email" className={classes.formField}/>
+         <label className={classes.formLable}>Email</label>
           <ErrorMessage name='email' component="span"/>
         </div>
          <div className={classes.control}> 
-         <label>Message:</label>
-          <Field as= "textarea" name="message" />
+          <Field as= "textarea" name="message" className={classes.formField} />
+         <label className={classes.formLable}>Message</label>
           <ErrorMessage name='message' component="span"/>
          </div>
         

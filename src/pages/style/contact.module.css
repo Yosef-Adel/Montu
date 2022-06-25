@@ -19,58 +19,69 @@
 }
 
   .control {
-    margin-bottom: 0.5rem;
-    text-align: left;
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 100%;
   }
-  
-  .control label {
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    display: block;
-    background-image: linear-gradient(to right,   rgb(0, 59, 223),
-    rgb(0, 2, 126));
-    -webkit-background-clip: text;
-    color: transparent;
-    letter-spacing: .1rem;
-    transition: all .2s;
-    margin-bottom: .5rem;
-    
-  }
-  .control label:hover {
-    transform: skewY(1deg) skewX(-10deg) scale(1.1);
-    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+
+.formField {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #080079;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  margin-bottom: 1rem;
+}
+.formField::placeholder {
+  color: transparent;
 }
 
+.formField:placeholder-shown ~ .formLable {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.formLable {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #080079;
+  font-size: 2rem;
+  font-weight: 800;
+}
 
-  
-  .control input,
-  .control textarea {
-    display: block;
-    font: inherit;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    padding: 0.25rem;
-    width: 100%;
-    font-size: 1.5rem;
-  }
-  .control input {
-    height: 2.5rem;
-  }
-  .control textarea {
-    height: 10rem;
-  }
-   .actions {
-    margin-top: 2rem;
-    text-align: center;
-
-
-  }
+.formField:focus{
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, rgb(0, 153, 33), rgb(19, 23, 255));
+  border-image-slice: 1;
+}
+.formField:focus ~ .formLable {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #0003c4;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.formField:required, .formLable:invalid {
+  box-shadow: none;
+}
   .control span {
     color: red;
     font-size: 1.5rem;
   }
-  
   .actions button {
     text-transform: uppercase;
     background-image: linear-gradient(to right,   rgb(0, 59, 223),
@@ -88,4 +99,8 @@
   .actions button:hover {
     background-image: linear-gradient(to right,   rgb(72, 109, 209),
     rgb(51, 53, 180));
+  }
+
+  .control {
+    margin-bottom: 3rem;
   }

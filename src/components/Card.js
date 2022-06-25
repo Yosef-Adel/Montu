@@ -16,7 +16,8 @@ const Card = ({id}) => {
         </div>
 
         <div className={`${classes.cardBack} ${classes.cardSide} ${classes.Card1Back}`}>
-
+        <h4 className={classes.cardDetails}>You imagine we excute,
+         Your imagination to your website</h4>
         </div>
 
       </div>  
@@ -33,7 +34,8 @@ const Card = ({id}) => {
         </div>
 
         <div className={`${classes.cardBack} ${classes.cardSide} ${classes.Card2Back}`}>
-
+            <h4 className={classes.cardDetails}>You imagine we excute,
+         Your imagination to your website</h4>
         </div>
 
       </div>
@@ -49,6 +51,7 @@ const Card = ({id}) => {
            </h4>
         </div>
         <div className={`${classes.cardBack} ${classes.cardSide} ${classes.Card3Back}`}>
+          <h4 className={classes.cardDetails}>give your customers the experience they deserve</h4>
         </div>
       </div>
       

@@ -25,12 +25,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           
-      -
-        name: Push old version to old image
-        run: |
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/montutech:latest
-          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/montutech:latest ${{ secrets.DOCKERHUB_USERNAME }}/montutech:old
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/montutech:old
+#       -
+#         name: Push old version to old image
+#         run: |
+#           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/montutech:latest
+#           docker tag ${{ secrets.DOCKERHUB_USERNAME }}/montutech:latest ${{ secrets.DOCKERHUB_USERNAME }}/montutech:old
+#           docker push ${{ secrets.DOCKERHUB_USERNAME }}/montutech:old
       
       -
         name: Build and push

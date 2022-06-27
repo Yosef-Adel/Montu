@@ -25,12 +25,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           
-#       -
-#         name: Push old version to old image
-#         run: |
-#           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/montutech:latest
-#           docker tag ${{ secrets.DOCKERHUB_USERNAME }}/montutech:latest ${{ secrets.DOCKERHUB_USERNAME }}/montutech:old
-#           docker push ${{ secrets.DOCKERHUB_USERNAME }}/montutech:old
+      -
+        name: Push old version to old image
+        run: |
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/montutech:latest
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/montutech:latest ${{ secrets.DOCKERHUB_USERNAME }}/montutech:old
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/montutech:old
       
       -
         name: Build and push
@@ -39,3 +39,14 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/montutech:latest
+      
+      - name: Deploy
+        uses: safe2008/eks-actions@v0.0.4
+        env:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: eu-central-1
+          cluster_name: MontuTech-Cluster
+        with:
+          args: |
+            kubectl rollout restart deployment montutechdeployment
